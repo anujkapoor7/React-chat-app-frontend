@@ -1,0 +1,105 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  display: grid;
+  grid-template-rows: 10% 75% 15%;
+  overflow: hidden;
+  background-color: $purple-4;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+
+    img {
+      height: 5rem;
+    }
+
+    h3 {
+      color: $white-1;
+      text-transform: uppercase;
+    }
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    gap: 0.8rem;
+
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      &-thumb {
+        background-color: $black-5;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
+
+    .contact {
+      background-color: $purple-3;
+      min-height: 5rem;
+      cursor: pointer;
+      width: 90%;
+      border-radius: 1rem;
+      padding: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: transform 0.2s ease-in-out;
+
+      .avatar {
+        img {
+          height: 3rem;
+        }
+      }
+
+      .username {
+        h3 {
+          color: $white-1;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .selected {
+      background-color: $blue-1;
+    }
+  }
+
+  .currentUser {
+    background-color: $purple-3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .avatar {
+      img {
+        height: 4rem;
+        max-inline-size: 100%;
+      }
+    }
+
+    .username {
+      h2 {
+        color: $white-1;
+      }
+    }
+
+    @include media-query(tablet, max) {
+      gap: 0.5rem;
+      .username {
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

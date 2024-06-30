@@ -1,0 +1,16 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  color: $white-1;
+  @include flex(column);
+
+  img {
+    height: 18rem;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    color: $blue-1;
+  }
+}

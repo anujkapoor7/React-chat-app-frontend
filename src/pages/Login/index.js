@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 export default function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ username: "", password: "" });
+
   const toastOptions = {
     position: "bottom-right",
     autoClose: 8000,
@@ -17,17 +18,20 @@ export default function Login() {
     draggable: true,
     theme: "dark",
   };
+
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
     }
+
+    // eslint-disable-next-line
   }, []);
 
-  const handleChange = (event) => {
+  function handleChange(event) {
     setValues({ ...values, [event.target.name]: event.target.value });
-  };
+  }
 
-  const validateForm = () => {
+  function validateForm() {
     const { username, password } = values;
     if (username === "") {
       toast.error("Email and Password is required.", toastOptions);
@@ -37,9 +41,9 @@ export default function Login() {
       return false;
     }
     return true;
-  };
+  }
 
-  const handleSubmit = async (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (validateForm()) {
       const { username, password } = values;
@@ -59,12 +63,12 @@ export default function Login() {
         navigate("/");
       }
     }
-  };
+  }
 
   return (
     <>
       <div className={styles.container}>
-        <form action="" onSubmit={(event) => handleSubmit(event)}>
+        <form onSubmit={(event) => handleSubmit(event)}>
           <div className={styles.brand}>
             <img src={Logo} alt="logo" />
             <h1>Slack 2.0</h1>

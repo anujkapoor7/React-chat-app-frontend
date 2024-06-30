@@ -4,26 +4,36 @@
 .container {
   height: 100vh;
   width: 100vw;
-  @include flex(column, center, center, 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
   background-color: $black-1;
 
   .brand {
-    @include flex(row, center, center, 1rem);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
 
     img {
-      height: 6rem;
+      height: 5rem;
     }
 
     h1 {
       color: $white-1;
+      text-transform: uppercase;
     }
   }
 
   form {
-    @include flex(column, initial, initial, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     background-color: $black-2;
-    border-radius: 1rem;
-    padding: 5rem;
+    border-radius: 2rem;
+    padding: 3rem 5rem;
   }
 
   input {
@@ -71,6 +81,7 @@
   span {
     color: $white-1;
     text-transform: uppercase;
+
     a {
       color: $blue-1;
       text-decoration: none;

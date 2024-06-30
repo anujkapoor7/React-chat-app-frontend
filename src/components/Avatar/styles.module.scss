@@ -1,0 +1,75 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: $black-1;
+  height: 100vh;
+  width: 100vw;
+
+  .loader {
+    max-inline-size: 100%;
+  }
+
+  .titleContainer {
+    h1 {
+      color: $white-1;
+    }
+  }
+
+  .avatars {
+    display: flex;
+    gap: 2rem;
+
+    .avatar {
+      border: 0.4rem solid transparent;
+      padding: 0.4rem;
+      border-radius: 5rem;
+      @include flex(row);
+      transition: transform 0.2s ease-in-out, border 0.1s ease-in-out;
+      cursor: pointer;
+
+      img {
+        height: 6rem;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    .selected {
+      border: 0.4rem solid $blue-1;
+    }
+  }
+
+  .submitBtn {
+    background-color: $black-2;
+    color: $white-1;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: $red-1;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+}

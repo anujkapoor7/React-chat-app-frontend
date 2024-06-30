@@ -1,0 +1,14 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: $black-1;
+  display: grid;
+  grid-template-columns: 24% 76%;
+
+  @include media-query(tablet, max) {
+    grid-template-columns: 35% 65%;
+  }
+}
