@@ -1,0 +1,84 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  display: grid;
+  grid-template-rows: 10% 75% 15%;
+  gap: 0.1rem;
+  overflow: hidden;
+
+  @include media-query(tablet, max) {
+    grid-template-rows: 15% 70% 15%;
+  }
+
+  .chatHeader {
+    @include flex(row, space-between, center);
+    padding: 0 2rem;
+
+    .userDetails {
+      @include flex(row, initial, center, 1rem);
+
+      .avatar {
+        img {
+          height: 3rem;
+        }
+      }
+
+      .username {
+        h3 {
+          color: $white-1;
+        }
+      }
+    }
+  }
+
+  .chatMessages {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      &-thumb {
+        background-color: $black-4;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
+
+    .message {
+      @include flex(row, initial, center);
+
+      .content {
+        max-width: 40%;
+        overflow-wrap: break-word;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 1rem;
+        color: $white-2;
+
+        @include media-query(tablet, max) {
+          max-width: 70%;
+        }
+      }
+    }
+
+    .sended {
+      justify-content: flex-end;
+
+      .content {
+        background-color: $purple-4;
+      }
+    }
+
+    .recieved {
+      justify-content: flex-start;
+
+      .content {
+        background-color: $purple-4;
+      }
+    }
+  }
+}

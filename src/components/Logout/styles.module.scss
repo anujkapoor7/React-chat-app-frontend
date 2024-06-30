@@ -1,0 +1,16 @@
+@import "../../utils/styles/colors.scss";
+@import "../../utils/styles/mixins.scss";
+
+.container {
+  @include flex(row);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: $red-1;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    font-size: 1.3rem;
+    color: $white-1;
+  }
+}
